@@ -11,19 +11,6 @@ Manifest V3 browser extension that scrapes job pages.
 
 ![JobFauna demo](assets/demo.gif)
 
-> The clip above is an animated mock-up of the flow. To swap in a real screen recording:
-> record your screen (macOS `Cmd+Shift+5`, Windows Xbox Game Bar `Win+G`, or
-> [ScreenToGif](https://www.screentogif.com/) / [Kap](https://getkap.co/)), save it as
-> `assets/demo.gif`, and this image will update automatically.
-
----
-
-## Why it exists
-
-Most job trackers are spreadsheets or CRUD apps you have to fill in by hand — which
-means you stop using them after a week. This one is built around **zero-friction
-capture**: the data gets in by itself.
-
 ```
   Browse a job  ──►  Click the extension  ──►  It's on your board
    (LinkedIn,         (auto-scrapes title,       (drag through stages,
