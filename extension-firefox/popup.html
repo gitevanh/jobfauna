@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  :root {
+    --bg:#0c0d10; --panel:#16181f; --line:#272b36; --text:#e8e9ed;
+    --muted:#8b909c; --faint:#5b606c; --accent:#6fdc8c; --accent-ink:#06210f; --good:#4ade80; --bad:#f87171;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { width:344px; font-family:'IBM Plex Sans',system-ui,sans-serif; background:var(--bg); color:var(--text); padding:14px; }
+  .head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+  .head .dot { width:8px; height:8px; border-radius:3px; background:var(--accent); }
+  .head h1 { font-size:14px; font-weight:700; }
+  .head .status { margin-left:auto; font-size:10px; color:var(--faint); font-family:monospace; }
+  .field { display:flex; flex-direction:column; gap:4px; margin-bottom:9px; }
+  .field label { font-size:9px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-family:monospace; }
+  .field input, .field textarea { background:var(--panel); border:1px solid var(--line); border-radius:7px; padding:7px 9px; color:var(--text); font-family:inherit; font-size:12px; }
+  .field input:focus, .field textarea:focus { outline:none; border-color:var(--accent); }
+  .field textarea { resize:vertical; min-height:46px; line-height:1.4; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .btn { width:100%; border:none; border-radius:8px; padding:10px; font-family:inherit; font-weight:600; font-size:13px; cursor:pointer; margin-top:4px; background:var(--accent); color:var(--accent-ink); }
+  .btn:hover { filter:brightness(1.08); }
+  .btn:disabled { opacity:.6; cursor:default; }
+  .msg { font-size:11px; text-align:center; margin-top:9px; min-height:14px; }
+  .msg.ok { color:var(--good); } .msg.err { color:var(--bad); }
+  .settings { margin-top:12px; border-top:1px solid var(--line); padding-top:10px; }
+  .settings > summary { font-size:11px; color:var(--muted); cursor:pointer; font-family:monospace; display:flex; align-items:center; gap:6px; }
+  .cfg-dot { width:7px; height:7px; border-radius:50%; background:var(--faint); display:inline-block; }
+  .cfg-dot.on { background:var(--good); }
+  .settings .field { margin-top:8px; margin-bottom:0; }
+  .subsettings { margin-top:8px; }
+  .subsettings > summary { font-size:10px; color:var(--faint); cursor:pointer; font-family:monospace; }
+  .settings-actions { display:flex; gap:8px; margin-top:10px; }
+  .mini { flex:1; font-family:inherit; font-size:11px; font-weight:600; padding:7px; border-radius:7px; border:1px solid var(--line); background:var(--panel); color:var(--text); cursor:pointer; }
+  .mini:hover { border-color:var(--faint); }
+  .smsg { font-size:10px; text-align:center; margin-top:8px; min-height:12px; color:var(--muted); }
+  .smsg.ok { color:var(--good); } .smsg.err { color:var(--bad); }
+</style>
+</head>
+<body>
+  <div class="head">
+    <span class="dot"></span>
+    <h1>Save to JobFauna</h1>
+    <span class="status" id="scrape-status">reading…</span>
+  </div>
+
+  <div class="field"><label>Role title</label><input id="title" /></div>
+  <div class="row">
+    <div class="field"><label>Company</label><input id="company" /></div>
+    <div class="field"><label>Location</label><input id="location" /></div>
+  </div>
+  <div class="field"><label>Description (auto-grabbed)</label><textarea id="description"></textarea></div>
+
+  <button class="btn" id="save">Save to tracker</button>
+  <div class="msg" id="msg"></div>
+
+  <details class="settings" id="settings">
+    <summary>⚙ Server &amp; token <span class="cfg-dot" id="cfg-dot"></span></summary>
+    <div class="field"><label>Tracker URL</label><input id="server" placeholder="http://localhost:8000" /></div>
+    <div class="field"><label>API token</label><input id="token" type="password" placeholder="account → Generate token" /></div>
+    <details class="subsettings">
+      <summary>Cloudflare Access (optional)</summary>
+      <div class="field"><label>Client ID</label><input id="cfid" /></div>
+      <div class="field"><label>Client Secret</label><input id="cfsecret" type="password" /></div>
+    </details>
+    <div class="settings-actions">
+      <button class="mini" id="save-settings">Save settings</button>
+      <button class="mini" id="test-conn">Test connection</button>
+    </div>
+    <div class="smsg" id="settings-msg"></div>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>

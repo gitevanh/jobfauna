@@ -1,0 +1,12 @@
+Senior IT / systems administration professional with experience supporting
+large endpoint fleets, PowerShell and Python automation, Azure, endpoint
+management (SCCM, JAMF, Intune/MD-102), and internal web app development
+(.NET 8 / SQL). Holds AZ-900, ITIL v4, MD-102, and JAMF Pro 10 certifications.
+Runs a Proxmox-based homelab (Docker, UniFi networking, Cloudflare).
+
+Looking for sysadmin, IT support, or infrastructure roles. Open to hybrid or
+remote. Strongest fit: infrastructure, endpoint management, automation, cloud
+fundamentals.
+
+(Edit this file to describe yourself. The text here is sent to Claude so it can
+score how well each job matches you. Delete this note when you're done.)

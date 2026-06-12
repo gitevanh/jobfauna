@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "JobFauna Clipper",
+  "version": "1.1.0",
+  "description": "Save a job posting to your JobFauna tracker in one click. Works on LinkedIn, Indeed, Glassdoor, and most careers pages.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Save this job to JobFauna",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

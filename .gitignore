@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# The local database (your job data — don't commit it)
+backend/jobs.db
+
+# Your real profile (keep the example, ignore personal edits if you prefer)
+# backend/profile.txt
+
+# OS noise
+.DS_Store
+Thumbs.db
