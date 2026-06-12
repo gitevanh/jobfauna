@@ -11,6 +11,19 @@ Manifest V3 browser extension that scrapes job pages.
 
 ![JobFauna demo](assets/demo.gif)
 
+> The clip above is an animated mock-up of the flow. To swap in a real screen recording:
+> record your screen (macOS `Cmd+Shift+5`, Windows Xbox Game Bar `Win+G`, or
+> [ScreenToGif](https://www.screentogif.com/) / [Kap](https://getkap.co/)), save it as
+> `assets/demo.gif`, and this image will update automatically.
+
+---
+
+## Why it exists
+
+Most job trackers are spreadsheets or CRUD apps you have to fill in by hand — which
+means you stop using them after a week. This one is built around **zero-friction
+capture**: the data gets in by itself.
+
 ```
   Browse a job  ──►  Click the extension  ──►  It's on your board
    (LinkedIn,         (auto-scrapes title,       (drag through stages,
@@ -279,8 +292,15 @@ job-tracker/
 │   ├── profile.txt      # default "about me" for fit scoring
 │   └── requirements.txt
 ├── frontend/
-│   ├── index.html       # the dashboard (HTML/CSS/JS in one file)
-│   └── login.html       # sign-in page
+│   ├── index.html       # dashboard markup (styles/scripts linked, not inlined)
+│   ├── login.html       # sign-in markup
+│   └── static/
+│       ├── css/
+│       │   ├── dashboard.css
+│       │   └── login.css
+│       └── js/
+│           ├── dashboard.js   # board, drawer, AI actions, account/admin
+│           └── login.js       # sign-in / request-access / first-run setup
 ├── extension-chrome/    # Chrome / Edge / Brave (Manifest V3)
 │   ├── manifest.json
 │   ├── popup.html

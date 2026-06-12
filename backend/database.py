@@ -14,7 +14,10 @@ import sqlite3
 import os
 from datetime import datetime, timezone
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "jobs.db")
+DB_PATH = os.environ.get(
+    "JOBTRACKER_DB",
+    os.path.join(os.path.dirname(__file__), "jobs.db"),
+)
 STATUSES = ["saved", "applied", "interview", "offer", "rejected"]
 
 
